@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Download Page</title>
+  <style>
+    body {
+      background: url('https://imgur.com/a/TsJ5Ceh.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://imgur.com/a/TsJ5Ceh.png" alt="Logo" style="max-width: 150px;"><br><br>
+    <h2>Let's make sure you're human</h2><p>Enter this number: <strong id="code"></strong></p>
+    <input type="text" id="userInput" placeholder="Enter the number">
+    <button onclick="verify()">Verify</button>
+
+    <div id="downloads" class="hidden">
+      <h3>Download Files</h3>
+      <a href="https://drive.google.com/file/d/1wvrU0eiL0E1tjGMuCjGYe5KC42CUsOhH/view?usp=drivesdk" download>Download</a><br>
+      <a href="https://imgur.com/a/TsJ5Ceh#KUKfKmU" download>Download</a>
+    </div>
+  </div>
+
+  <script>
+    const code = Math.floor(1000 + Math.random() * 9000);
+    document.getElementById('code').innerText = code;
+
+    function verify() {
+      const input = document.getElementById('userInput').value;
+      if (input == code) {
+        document.getElementById('downloads').classList.remove('hidden');
+        alert("verified ");
+      } else {
+        alert("try again ");
+      }
+    }
+  </script>
+</body>
+</html>
+
